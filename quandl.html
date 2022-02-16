@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quandl</title>
+
+    <script>
+
+        const API_KEY = 'nZFgDaFsXLiGVoRv45aV';
+
+        function loadBitcoinCourse() {
+            let url = '';
+            let response = await fetch(url);
+            let responseAsJson = response.json();
+        }
+
+
+    </script>
+
+</head>
+
+<body onload="loadBitcoinCourse()">
+
+    <h1>Was kostet ein Bitcoin aktuell?</h1>
+
+    <div>Aktuell kostet ein Bitcoin <b>60.00</b> USD.</div>
+    
+</body>
+</html>

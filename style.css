@@ -1,0 +1,78 @@
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.h {
+    text-align: center;
+    font-family: 'Comforter', cursive;
+    font-size: xx-large;
+    color: #eeff00;
+    text-shadow:  3px  3px 3px rgb(0, 140, 255),
+          3px 3px 3px rgb(0, 140, 255),
+         3px  3px 3px rgb(0, 140, 255),
+         3px 3px 3px rgb(0, 140, 255);
+}
+
+.h:hover {
+    cursor: default;
+}
+
+/* #pokedex {
+    background-color: rgb(124, 0, 72);
+    color: white;
+} */
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(124, 0, 72);
+    color: white;
+    border-radius: 25px;
+    padding: 16px;
+    align-items: center;
+    margin-bottom: 12px;
+
+}
+
+.column:hover {
+    cursor: pointer;
+    opacity: 0.85;
+}
+
+.pokemon-img {
+    width: 90px;
+    height: 90px;
+}
+
+.info-container {
+    background-color: white;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    min-height: 100px;
+}
+
+.open-card {
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+.full-card {
+    object-fit: cover;
+    height: 75vh;
+    z-index: 2;
+}

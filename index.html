@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Synonyms</title>
+    <script>
+
+        //DOWNLOAD VON API
+        async function getSynonyms() {
+            let url = 'https://www.openthesaurus.de/synonyme/search?q=test&format=application/json';
+            let response = await fetch(url);
+            let responseAsJson = await response.json();
+            let synsets = responseAsJson['synsets'];
+
+            console.log('Response is', responseAsJson);
+
+            renderSynsets(synsets);
+        }
+
+
+        //MENGE VON JSON WIRD ERMITTELT UND IM DIV ANGEZEIGT
+        function renderSynsets(synsets) {
+            let container = document.getElementById('container');
+            container.innerHTML = `<div> <u>Es wurden <b>${synsets.length}</b> Synonym-Sets geladen.</u> </div>`;
+
+            for (let i = 0; i < synsets.length; i++) {          //JSON SYNSETS WIRD ITERIERT
+                const synset = synsets[i];                      //i-te STELLE VON JSON "SYNSETS"
+                let terms = synset['terms'];                    //ARRAY "TERMS" IN JSON
+                //DARSTELLUNG
+                container.innerHTML += `<div> <b> Das Synonym-Set mit der ID ${synset['id']} hat folgende Wörter. </b></div>`;        
+
+                for (let j = 0; j < terms.length; j++) {        //FOR SCHLEIFE IN FOR SCHLEIFE, DA ARRAY IN ARRAY     
+                    const term = terms[j];
+                    //DARSTELLUNG
+                    container.innerHTML += `<div>${term['term']}</div>`;                    	                            
+                }  
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <button onclick="getSynonyms()">Get Synonyms for Test</button>
+
+    <div id="container">
+
+    </div>
+
+</body>
+
+</html>
